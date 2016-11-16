@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entidades.Personaje;
+import logic.ControladorBatallas;
+
 /**
  * Servlet implementation class seleccion
  */
-@WebServlet("/seleccion")
-public class seleccion extends HttpServlet {
+@WebServlet("/Iniciar")
+public class Iniciar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public seleccion() {
+    public Iniciar() {
         // TODO Auto-generated constructor stub
     }
 
@@ -35,6 +38,21 @@ public class seleccion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		ControladorBatallas cb = new ControladorBatallas();
+		Personaje p1 = new Personaje();
+		Personaje p2 = new Personaje();
+		p1.setNombre(request.getParameter("Personaje1"));
+		p2.setNombre(request.getParameter("Personaje2"));
+		try {
+			cb.setPersonaje1(p1);
+			cb.setPersonaje2(p2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		p1 = cb.getPersonaje1();
+		p2 = cb.getPersonaje2();
+		request.getSession().setAttribute("P1", p1);
+		request.getSession().setAttribute("P2", p2);
 	}
 
 }
