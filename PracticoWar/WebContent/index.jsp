@@ -34,7 +34,7 @@
 			<p style:"text-align:center;">Personaje 1</p>
 			
 			<form name ="iniciarBatalla" action="Iniciar" method="post">			<!--Blue select-->
-			<select name="per1" class="form-control validate" required>
+			<select id="per1" name="per1" class="form-control validate" required>
 				<option value="" disabled selected>Seleccione Personaje 1:</option>
 			    <option value="Minion">Minion</option>
 			    <option value="3">Option 3</option>
@@ -52,7 +52,7 @@
 			<p style:"text-align:center;">Personaje 2</p>
 			
 			
-				<select name="per1" class="form-control validate" required>
+				<select id="per2" name="per2" class="form-control validate" required>
 					<option value="" disabled selected>Seleccione Personaje 2:</option>
 
 				    <option value="Minion">Minion</option>
