@@ -45,14 +45,15 @@ public class Iniciar extends HttpServlet {
 		ControladorBatallas cb = new ControladorBatallas();
 		Personaje p1 = new Personaje();
 		Personaje p2 = new Personaje();
-		p1.setNombre(request.getParameter("Personaje1"));
-		p2.setNombre(request.getParameter("Personaje2"));
+		p1.setNombre(request.getParameter("per1"));
+		p2.setNombre(request.getParameter("per2"));
 		try {
 			cb.setPersonaje1(p1);
 			cb.setPersonaje2(p2);
 			p1 = cb.getPersonaje1();
 			p2 = cb.getPersonaje2();
 			cb.generarTurno();
+			
 			request.getSession().setAttribute("P1", p1);
 			request.getSession().setAttribute("P2", p2);
 			request.getRequestDispatcher("batalla.jsp").forward(request, response);
