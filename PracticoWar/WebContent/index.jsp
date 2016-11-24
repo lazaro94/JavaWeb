@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Material Design Bootstrap</title>
+    <title>Tp Java</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -37,9 +37,9 @@
 			<select id="per1" name="per1" class="form-control validate" required>
 				<option value="" disabled selected>Seleccione Personaje 1:</option>
 			    <option value="Minion">Minion</option>
-			    <option value="3">Option 3</option>
-			    <option value="4">Option 4</option>
-			    <option value="5">Option 5</option>
+			    <option value="Goku">Goku</option>
+			    <option value="Sapo Pepe">Sapo Pepe</option>
+			    <option value="Pikachu">Pikachu</option>
 			</select>
 		
 			
@@ -56,9 +56,10 @@
 					<option value="" disabled selected>Seleccione Personaje 2:</option>
 
 				    <option value="Minion">Minion</option>
-				    <option value="3">Option 3</option>
-				    <option value="4">Option 4</option>
-				    <option value="5">Option 5</option>
+				    <option value="Minion">Minion</option>
+			    	<option value="Goku">Goku</option>
+			    	<option value="Sapo Pepe">Sapo Pepe</option>
+			    	<option value="Pikachu">Pikachu</option>
 				</select>
 				
 			
