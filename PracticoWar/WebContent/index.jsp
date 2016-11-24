@@ -28,7 +28,42 @@
 <body>
 
     <!-- Start your project here-->
+    <div class= "container-fluid" id="Principal">
+    	<div class="row"></div>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="Personaje 1">
+			<p style:"text-align:center;">Personaje 1</p>
+			
+			<form name ="iniciarBatalla" action="Iniciar" method="post">			<!--Blue select-->
+			<select name="per1" class="form-control validate" required>
+				<option value="" disabled selected>Seleccione Personaje 1:</option>
+			    <option value="2">Option 2</option>
+			    <option value="3">Option 3</option>
+			    <option value="4">Option 4</option>
+			    <option value="5">Option 5</option>
+			</select>
+		
+			
+			</div>
+			
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="Batalla">
+				<p style="text-align:center" ><button type="submit" class="btn btn-default">Iniciar Batalla</button></p>	
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="Personaje 2">
+			<p style:"text-align:center;">Personaje 2</p>
+			
+			
+				<select name="per1" class="form-control validate" required>
+					<option value="" disabled selected>Seleccione Personaje 2:</option>
 
+				    <option value="2">Option 2</option>
+				    <option value="3">Option 3</option>
+				    <option value="4">Option 4</option>
+				    <option value="5">Option 5</option>
+				</select>
+				
+			
+			</form>
+			</div>
     <!-- /Start your project here-->
     
 
@@ -45,6 +80,11 @@
 
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script> 
+	    $(document).ready(function() {
+	    $('.mdb-select').material_select();
+	  });
+    </script>
 
 
 </body>
