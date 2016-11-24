@@ -37,19 +37,19 @@ public class Defender extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		ControladorBatallas cb;
+		doGet(request, response);		
 		Personaje p1;
 		Personaje p2;
 		try{
-			cb = new ControladorBatallas();
+			ControladorBatallas cb = (ControladorBatallas)request.getSession().getAttribute("Controlador");
 			cb.defensa();
-			cb.cambioTurno();
+			int turno=cb.cambioTurno();
 			p1 = cb.getPersonaje1();
 			p2 = cb.getPersonaje2();
 			request.getSession().setAttribute("P1", p1);
 			request.getSession().setAttribute("P2", p2);
-			request.getRequestDispatcher("batalla.jsp").forward(request, response);
+			request.getSession().setAttribute("Controlador", cb);
+			request.getRequestDispatcher("WEB-INF/batalla.jsp").forward(request, response);
 		}
 		catch(Exception ex){
 			

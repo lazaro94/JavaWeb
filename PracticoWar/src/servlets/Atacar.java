@@ -38,24 +38,29 @@ public class Atacar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		ControladorBatallas cb;
 		Personaje p1;
 		Personaje p2;
+		int energia;
 		try{
-			cb = new ControladorBatallas();
-			int energia = Integer.valueOf(request.getParameter("energia1"));
+			ControladorBatallas cb = (ControladorBatallas)request.getSession().getAttribute("Controlador");
+			if(cb.getTurnoActual()==1){
+				energia = Integer.parseInt(request.getParameter("Energia1"));
+			}else{
+				energia = Integer.parseInt(request.getParameter("Energia2"));
+			}
 			cb.ataque(energia);
 			if(cb.isOver()){
 				// Si entra acá es porque terminó //
 				String ganador = cb.getStatus();
-				
+				request.getRequestDispatcher("ganador.jsp").forward(request, response);				
 			}else{
 				cb.cambioTurno();
 				p1 = cb.getPersonaje1();
 				p2 = cb.getPersonaje2();
 				request.getSession().setAttribute("P1", p1);
 				request.getSession().setAttribute("P2", p2);
-				request.getRequestDispatcher("batalla.jsp").forward(request, response);
+				request.getSession().setAttribute("Controlador", cb);
+				request.getRequestDispatcher("WEB-INF/batalla.jsp").forward(request, response);
 			}			
 		}
 		catch(Exception ex){

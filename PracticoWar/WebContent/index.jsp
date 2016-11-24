@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import= "entidades.Personaje"%>
+<%@page import= "logic.ControladorPersonaje" %>
+<%@page import= "java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="es">
@@ -27,6 +30,16 @@
 
 <body>
 
+<%
+ControladorPersonaje cp = new ControladorPersonaje();
+ArrayList<Personaje> personajes = new ArrayList<Personaje>();
+try{
+	personajes=cp.todosPersonajes();
+}
+catch(Exception ex){
+	
+}
+%>
     <!-- Start your project here-->
     <div class= "container-fluid" id="Principal">
     	<div class="row"></div>
@@ -36,10 +49,9 @@
 			<form name ="iniciarBatalla" action="Iniciar" method="post">			<!--Blue select-->
 			<select id="per1" name="per1" class="form-control validate" required>
 				<option value="" disabled selected>Seleccione Personaje 1:</option>
-			    <option value="Minion">Minion</option>
-			    <option value="Goku">Goku</option>
-			    <option value="Sapo Pepe">Sapo Pepe</option>
-			    <option value="Pikachu">Pikachu</option>
+				<%for(Personaje p : personajes) {%>
+			    <option value="<%=p.getNombre()%>"><%=p.getNombre()%></option>
+			    <%} %>
 			</select>
 		
 			
@@ -54,12 +66,10 @@
 			
 				<select id="per2" name="per2" class="form-control validate" required>
 					<option value="" disabled selected>Seleccione Personaje 2:</option>
-
-				    <option value="Minion">Minion</option>
-				    <option value="Minion">Minion</option>
-			    	<option value="Goku">Goku</option>
-			    	<option value="Sapo Pepe">Sapo Pepe</option>
-			    	<option value="Pikachu">Pikachu</option>
+					<%for(Personaje p : personajes) {%>
+			    		<option value="<%=p.getNombre()%>"><%=p.getNombre()%></option>
+			    		<%} %>
+			</select>
 				</select>
 				
 			

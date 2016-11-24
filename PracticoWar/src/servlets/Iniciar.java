@@ -56,7 +56,8 @@ public class Iniciar extends HttpServlet {
 			
 			request.getSession().setAttribute("P1", p1);
 			request.getSession().setAttribute("P2", p2);
-			request.getRequestDispatcher("batalla.jsp").forward(request, response);
+			request.getSession().setAttribute("Controlador", cb);
+			request.getRequestDispatcher("WEB-INF/batalla.jsp").forward(request, response);
 		} 
 		catch (Exception e) {
 			request.getRequestDispatcher("error.jsp").forward(request, response);
