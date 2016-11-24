@@ -50,13 +50,17 @@ public class Iniciar extends HttpServlet {
 		try {
 			cb.setPersonaje1(p1);
 			cb.setPersonaje2(p2);
-		} catch (Exception e) {
+			p1 = cb.getPersonaje1();
+			p2 = cb.getPersonaje2();
+			cb.generarTurno();
+			request.getSession().setAttribute("P1", p1);
+			request.getSession().setAttribute("P2", p2);
+			request.getRequestDispatcher("batalla.jsp").forward(request, response);
+		} 
+		catch (Exception e) {
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 			e.printStackTrace();
 		}
-		p1 = cb.getPersonaje1();
-		p2 = cb.getPersonaje2();
-		request.getSession().setAttribute("P1", p1);
-		request.getSession().setAttribute("P2", p2);
 	}
 
 }

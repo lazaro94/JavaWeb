@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entidades.Personaje;
+import logic.ControladorBatallas;
+
 /**
  * Servlet implementation class Atacar
  */
@@ -35,6 +38,29 @@ public class Atacar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		ControladorBatallas cb;
+		Personaje p1;
+		Personaje p2;
+		try{
+			cb = new ControladorBatallas();
+			int energia = Integer.valueOf(request.getParameter("energia1"));
+			cb.ataque(energia);
+			if(cb.isOver()){
+				// Si entra acá es porque terminó //
+				String ganador = cb.getStatus();
+				
+			}else{
+				cb.cambioTurno();
+				p1 = cb.getPersonaje1();
+				p2 = cb.getPersonaje2();
+				request.getSession().setAttribute("P1", p1);
+				request.getSession().setAttribute("P2", p2);
+				request.getRequestDispatcher("batalla.jsp").forward(request, response);
+			}			
+		}
+		catch(Exception ex){
+			
+		}
 		
 	}
 
