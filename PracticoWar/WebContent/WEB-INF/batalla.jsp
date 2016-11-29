@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-    <title>Material Design Bootstrap</title>
+    <title>Java TP</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -40,45 +40,68 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
     <div class= "container-fluid" id="Batalla">
     	<div class="row"></div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 1">
+			<center>
 				<p style:"text-align:center;"><%=p1.getNombre()%></p>
-			</div>
-			
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Batalla">
-				
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug1" style="float:left">
-					<form name ="DefenderJug1" action="Defender" method="post">
+			</center>
+				<form name ="DefenderJug1" action="Defender" method="post">
 					<%if(cb.getTurnoActual()==1){ %>
 						<p style="text-align:center" ><button type="submit" class="btn btn-warning">Defender</button></p>	
-						<%} %>
+						
 					</form>
-					<p>Energia:<%=p1.getEnergiaBatalla()%> </p>
-					<p>Vida: <%=p1.getVidaBatalla()%></p>
-					
-					
 					<form name ="AtacarJug1" action="Atacar" method="post">
 					<div class="md-form">
 					    <i class="fa fa-envelope prefix"></i>
 					    <input type="number" name="Energia1" id="Energia1" min="0" max="<%=p1.getEnergiaBatalla()%>" class="form-control" required>
 					    <label for="Energia1">Energia</label>
 					</div>
-					<%if(cb.getTurnoActual()==1){ %>
+					
 					<p style="text-align:center" ><button type="submit" class="btn btn-danger">Atacar</button></p>
 					<%} %>
 					
 					</form>
+			</div>
+			
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Batalla">
+				
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug1" style="float:left">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+					<p>Energia:<%=p1.getEnergiaBatalla()%> </p>
+					<p>Vida: <%=p1.getVidaBatalla()%></p>
+					
+					
+					
 				
 				
 				</div>
 				
 				
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug2" style="floar:right">
-				
-				<form name ="DefenderJug2" action="Defender" method="post">
-					<p style="text-align:center" ><button type="submit" class="btn btn-warning">Defender</button></p>	
-				</form>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 					<p>Energia:<%=p2.getEnergiaBatalla()%> </p>
 					<p>Vida: <%=p2.getVidaBatalla()%></p>
-				<form name ="AtacarJug2" action="Atacar" method="post">
+				
+					</div>
+				
+					
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 2">
+				<center>
+			
+					<p><%=p2.getNombre()%></p>
+				</center>
+			<form name ="DefenderJug2" action="Defender" method="post">
+			<%if(cb.getTurnoActual()!=1){ %>
+					<p style="text-align:center" ><button type="submit" class="btn btn-warning">Defender</button></p>	
+			</form>
+			<form name ="AtacarJug2" action="Atacar" method="post">
 					<div class="md-form">
 					    <i class="fa fa-envelope prefix"></i>
 					    <input type="number" name="Energia2" id="Energia2" min="0" max="<%=p2.getEnergiaBatalla()%>" class="form-control" required>
@@ -87,15 +110,8 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
 					
 					<p style="text-align:center" ><button type="submit" class="btn btn-danger">Atacar</button></p>
 					
-					
+					<%} %>
 					</form>
-					</div>
-				
-					
-			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 2">
-			<p style:"text-align:center;"><%=p2.getNombre()%></p>
-			
 			
 				
 				
