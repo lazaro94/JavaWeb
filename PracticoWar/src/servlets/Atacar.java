@@ -52,7 +52,8 @@ public class Atacar extends HttpServlet {
 			if(cb.isOver()){
 				// Si entra acá es porque terminó //
 				String ganador = cb.getStatus();
-				request.getRequestDispatcher("ganador.jsp").forward(request, response);				
+				request.getSession().setAttribute("ganador", ganador);
+				request.getRequestDispatcher("WEB-INF/ganador.jsp").forward(request, response);				
 			}else{
 				cb.cambioTurno();
 				p1 = cb.getPersonaje1();

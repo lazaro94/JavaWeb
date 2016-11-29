@@ -87,7 +87,7 @@ public class ControladorBatallas {
 						personaje1.setPtosTotales(personaje1.getPtosTotales()+10);
 						cp.setPuntos(personaje1);
 						isOver=true;
-						status="El personaje 1 es el ganador.";
+						status="El jugador 1 es el ganador.";
 					}
 					catch(Exception ex){
 						throw ex;
@@ -107,7 +107,7 @@ public class ControladorBatallas {
 						personaje2.setPtosTotales(personaje2.getPtosTotales()+10);
 						cp.setPuntos(personaje2);
 						isOver=true;
-						status="El personaje 2 es el ganador.";
+						status="El jugador 2 es el ganador.";
 					}
 					catch(Exception ex){
 						throw ex;
