@@ -40,15 +40,15 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
     <div class= "container-fluid" id="Batalla">
     	<div class="row"></div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 1">
-			<center>
-				<p style:"text-align:center;"><%=p1.getNombre()%></p>
-			</center>
+				<center>
+					<p style:"text-align:center;"><%=p1.getNombre()%></p>
+				</center>
 				<form name ="DefenderJug1" action="Defender" method="post">
 					<%if(cb.getTurnoActual()==1){ %>
 						<p style="text-align:center" ><button type="submit" class="btn btn-warning">Defender</button></p>	
 						
-					</form>
-					<form name ="AtacarJug1" action="Atacar" method="post">
+				</form>
+				<form name ="AtacarJug1" action="Atacar" method="post">
 					<div class="md-form">
 					    <i class="fa fa-envelope prefix"></i>
 					    <input type="number" name="Energia1" id="Energia1" min="0" max="<%=p1.getEnergiaBatalla()%>" class="form-control" required>
@@ -58,12 +58,12 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
 					<p style="text-align:center" ><button type="submit" class="btn btn-danger">Atacar</button></p>
 					<%} %>
 					
-					</form>
-			</div>
+				</form>
+		</div>
 			
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Batalla">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Batalla">
 				
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug1" style="float:left">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug1" style="float:left">
 				<br>
 				<br>
 				<br>
@@ -72,33 +72,27 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
 					<p>Energia:<%=p1.getEnergiaBatalla()%> </p>
 					<p>Vida: <%=p1.getVidaBatalla()%></p>
 					
-					
-					
-				
-				
-				</div>
-				
-				
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug2" style="floar:right">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-					<p>Energia:<%=p2.getEnergiaBatalla()%> </p>
-					<p>Vida: <%=p2.getVidaBatalla()%></p>
-				
-					</div>
-				
-					
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 2">
-				<center>
 			
-					<p><%=p2.getNombre()%></p>
-				</center>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Jug2" style="floar:right">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<p>Energia:<%=p2.getEnergiaBatalla()%> </p>
+				<p>Vida: <%=p2.getVidaBatalla()%></p>
+				
+			</div>
+				
+					
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Personaje 2">
+			<center>
+				<p><%=p2.getNombre()%></p>
+			</center>
 			<form name ="DefenderJug2" action="Defender" method="post">
-			<%if(cb.getTurnoActual()!=1){ %>
+				<%if(cb.getTurnoActual()!=1){ %>
 					<p style="text-align:center" ><button type="submit" class="btn btn-warning">Defender</button></p>	
 			</form>
 			<form name ="AtacarJug2" action="Atacar" method="post">
@@ -111,12 +105,7 @@ ControladorBatallas cb = ((ControladorBatallas)session.getAttribute("Controlador
 					<p style="text-align:center" ><button type="submit" class="btn btn-danger">Atacar</button></p>
 					
 					<%} %>
-					</form>
-			
-				
-				
-			
-			
+			</form>
 			</div>
     <!-- /Start your project here-->
     
